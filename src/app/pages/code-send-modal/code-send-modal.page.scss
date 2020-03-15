@@ -1,0 +1,36 @@
+ion-content {
+    .lock_circle {
+        height: 70px;
+        width: 70px;
+        border: 4px solid var(--ion-color-orange);
+        border-radius: 50%;
+        padding: 8px 0px;
+        margin: 42px auto 0px;
+        text-align: center;
+        img {
+            width: 34px;
+            height: 43px;
+        }
+    }
+    .title {
+        font-size: 20px;
+        font-family: 'tofini_bold';
+        margin-top: 30px;
+    }
+    .description {
+        font-size: 14px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-lightGray);
+        margin-top: 25px;
+        line-height: 23px;
+    }
+    .btn-done {
+        --color: var(--ion-color-white);
+        height: 44px;
+        margin: 36px 27px 40px 28px;
+        font-size: 16px;
+        --box-shadow: none;
+        font-family: 'tofini_regular';
+        --background: var(--ion-color-gradiant);
+    }
+}

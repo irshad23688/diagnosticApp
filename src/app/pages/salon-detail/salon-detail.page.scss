@@ -1,0 +1,448 @@
+ion-toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+  transition: background-color 0.2s ease-in 0.2s;
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --ripple-color: var(--ion-color-white);
+    .back-icon {
+      width: 23.74px;
+      height: 20px;
+    }
+    .bookmark_icon_unchecked {
+      font-size: 30px;
+      color: white;
+      visibility: visible;
+    }
+    .bookmark_icon_checked{
+      font-size: 30px;
+      color: red;
+      visibility: visible;
+    }
+  }
+}
+ion-content {
+  --background: none;
+  background: url('../../../assets/images/General/Rectangle.png');
+  background-repeat: no-repeat;
+  background-size: 100% 290px;
+  ion-header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+  .salon-detail {
+    padding: 1px 16px 16px;
+    margin-top: 7.6rem;
+    background: rgba(2, 3, 3, 0.54);
+    .salon-name {
+      font-family: 'tofini_bold';
+      color: var(--ion-color-white);
+      margin-bottom: 5px;
+    }
+    .salon-address {
+      font-size: 13px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-white);
+      margin-top: 0px;
+    }
+    .rating-div {
+      position: relative;
+      ion-icon {
+        font-size: 20px;
+        margin-bottom: -5px;
+      }
+      .white-star {
+        color: var(--ion-color-white);
+      }
+      .orange-start {
+        color: var(--ion-color-darkYellow);
+        visibility: initial !important;
+      }
+      .total-review-lbl {
+        font-size: 12px;
+        font-family: 'tofini_regular';
+        margin-left: 12px;
+        color: var(--ion-color-white);
+      }
+    }
+    .open-label {
+      color: var(--ion-color-green);
+      width: fit-content;
+      border: 1px solid var(--ion-color-green);
+      font-size: 12px;
+      padding: 3px 8px 2px 7px;
+      border-radius: 3px;
+      font-family: 'tofini_medium';
+      bottom: -3px;
+      position: absolute;
+      right: 0px;
+      margin: 0px;
+    }
+    .close-label {
+      color: red;
+      width: fit-content;
+      border: 1px solid red;
+      font-size: 12px;
+      padding: 3px 8px 2px 7px;
+      border-radius: 3px;
+      font-family: 'tofini_medium';
+      bottom: -3px;
+      position: absolute;
+      right: 0px;
+      margin: 0px;
+    }
+  }
+  .section-two {
+    background-color: #f8f8f8;
+    .btn-row {
+      padding-top: 10px;
+      .icon-website {
+        width: 25.26px;
+        height: 26.17px;
+        margin-bottom: 7px;
+        margin-top: 5px;
+      }
+      .icon-call {
+        height: 38px;
+        width: 38px;
+      }
+      .icon-direction {
+        width: 28px;
+        height: 30px;
+        margin-bottom: 7px;
+        margin-top: 1px;
+      }
+      .icon-share {
+        width: 25px;
+        height: 22px;
+        margin-bottom: 7px;
+        margin-top: 7px;
+      }
+      p {
+        margin: 0px;
+        font-size: 13px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-lightGray);
+        a{
+          text-decoration: none;
+          margin: 0px;
+          font-size: 13px;
+          font-family: 'tofini_regular';
+          color: var(--ion-color-lightGray);
+          background-color: transparent;
+        }
+      }
+    }
+    .specialist-title {
+      font-size: 16px;
+      font-family: 'tofini_bold';
+      margin-top: 26px;
+    }
+    .employee-row {
+      padding-bottom: 10px;
+      overflow-x: scroll;
+      margin-left: 3px;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .image-div {
+        height: 64px;
+        width: 64px;
+        margin: 0px auto;
+        border-radius: 50%;
+        border: 1.5px solid var(--ion-color-orange);
+        padding: 3px 2px 2px 2px;
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .active {
+        border-color: var(--ion-color-orange);
+      }
+      .emp-name {
+        font-size: 12px;
+        font-family: 'tofini_regular';
+        margin-bottom: 2px;
+      }
+      .emp-deg {
+        font-size: 11px;
+        font-family: 'tofini_book';
+        color: var(--ion-color-lightGray);
+        margin: 0px;
+      }
+    }
+    ion-segment {
+      ion-segment-button {
+        text-transform: initial;
+        --background: transparent;
+        --background-activated: transparent;
+        --background-checked: transparent;
+        --background-hover: transparent;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --border-width: 3px;
+        --color-checked: var(--ion-color-black);
+        --color: var(--ion-color-lightGray);
+        --indicator-color-checked: var(--ion-color-orange);
+        font-size: 16px;
+        font-family: 'tofini_medium';
+        &:first-child {
+          margin-left: 15px;
+        }
+        &:last-child {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  .segment-tabs {
+    background-color: var(--ion-color-white);
+
+    .about-div {
+      padding: 10px 16px 0px 16px;
+      .title {
+        font-size: 16px;
+        font-family: 'tofini_medium';
+      }
+      .about-content {
+        font-size: 14px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-lightGray);
+        line-height: 18px;
+        margin-bottom: 20px;
+      }
+      a {
+        font-size: 14px;
+        font-family: 'tofini_regular';
+        margin-left: 5px;
+        color: var(--ion-color-orange);
+      }
+      .circle {
+        height: 8px;
+        width: 8px;
+        background-color: var(--ion-color-green);
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: 2px;
+      }
+      .dayname {
+        font-size: 14px;
+        padding-top: 7px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-MiddleGray);
+      }
+      .time {
+        font-size: 14px;
+        font-family: 'tofini_medium';
+        color: var(--ion-color-MiddleGray);
+      }
+      .address {
+        font-size: 14px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-lightGray);
+        margin-bottom: 8px;
+      }
+      .btn-direction {
+        font-size: 13px;
+        font-family: 'tofini_regular';
+        text-transform: initial;
+        --padding-start: 0em;
+        --padding-end: 0em;
+        ion-icon {
+          height: 14px;
+          width: 14px;
+          margin-right: 5px;
+        }
+      }
+      .btn-viewAll {
+        height: 18px;
+        font-size: 14px;
+        font-family: 'tofini_medium';
+        --color: var(--ion-color-lightGray);
+        --color-activated: var(--ion-color-lightGray);
+        text-transform: initial;
+        --padding-start: 0em;
+        --padding-end: 0em;
+      }
+      .photo-row {
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        img {
+          border-radius: 10px;
+        }
+      }
+      .btn-book {
+        --color: var(--ion-color-white);
+        height: 44px;
+        margin: 30px 16px 20px 16px;
+        font-size: 15px;
+        --box-shadow: none;
+        font-family: 'tofini_regular';
+        --background: var(--ion-color-gradiant);
+        text-transform: inherit;
+      }
+    }
+    .services-div {
+      padding: 20px 16px 0px 16px;
+      ion-item {
+        --padding-start: 0px;
+        --inner-padding-end: 0px;
+        h3 {
+          font-size: 16px;
+          font-family: 'tofini_medium';
+          .btn-view {
+            font-size: 13px;
+            font-family: 'tofini_medium';
+            --padding-start: 0em;
+            --padding-end: 0em;
+            text-transform: initial;
+            margin: 0px;
+            height: 20px;
+          }
+        }
+        p {
+          font-size: 13px;
+          font-family: 'tofini_book';
+          color: var(--ion-color-lightGray);
+        }
+        ion-thumbnail {
+          border-radius: 10px;
+        }
+        ion-icon {
+          font-size: 33px;
+          padding: 11px 9px 11px 13px;
+        }
+      }
+    }
+    .gallery-div {
+      padding: 15px 5px 5px 5px;
+
+      ion-col {
+        padding-bottom: 1px;
+        img {
+          height: 21.2vh;
+          border-radius: 10px;
+          width: 100%;
+        }
+      }
+    }
+    .review-div {
+      .write-review {
+        padding: 10px 16px 0px 16px;
+        position: relative;
+        height: 165px;
+        border-bottom: 1px solid #cccccc;
+        h5 {
+          font-size: 14px;
+          font-family: 'tofini_medium';
+          color: var(--ion-color-simpleDark);
+          .rating {
+            margin-top: -3px;
+            ion-icon {
+              font-size: 20px;
+              margin-right: 4px;
+              &:last-child {
+                margin-right: 0px;
+              }
+              color: #cccccc;
+            }
+            .selected {
+              color: var(--ion-color-darkYellow);
+            }
+          }
+        }
+        .input-item {
+          margin-top: 10px;
+          --padding-start: 0px;
+          --inner-padding-end: 0px;
+          ion-avatar {
+            height: 48px;
+            width: 48px;
+          }
+          ion-input {
+            --background: var(--ion-input-back);
+            --placeholder-color: var(--ion-placeholder-color);
+            font-size: 15px;
+            font-family: 'tofini_regular';
+            border-radius: 20px;
+            --padding-start: 19px;
+            --padding-top: 14px;
+            --padding-bottom: 8px;
+            --padding-end: 16px;
+          }
+        }
+        .btn-post {
+          position: absolute;
+          right: 16px;
+          bottom: 15px;
+          font-size: 15px;
+          text-transform: initial;
+          font-family: 'tofini_regular';
+          --padding-top: 4px;
+          --padding-end: 20px;
+          --padding-start: 20px;
+        }
+      }
+      .display-review {
+        padding: 0px 0px 0px 16px;
+        .all-review-title {
+          font-size: 14px;
+          margin-bottom: 0px;
+          margin-top: 0px;
+          font-family: 'tofini_medium';
+          color: var(--ion-color-simpleDark);
+          padding-top: 13px;
+        }
+        .single-review {
+          border-bottom: 1px solid #cccccc;
+          padding-right: 16px;
+          margin-top: 6px;
+          ion-item {
+            --padding-start: 0px;
+            --inner-padding-end: 0px;
+            ion-avatar {
+              height: 54px;
+              width: 54px;
+            }
+            .username {
+              font-size: 16px;
+              font-family: 'tofini_medium';
+              .time {
+                font-size: 11px;
+                font-family: 'tofini_regular';
+                color: var(--ion-color-simpleDark);
+                margin-top: 5px;
+              }
+            }
+            .stars {
+              ion-icon {
+                color: #cccccc;
+                margin-right: 2px;
+                font-size: 15px;
+              }
+              .color-star {
+                color: var(--ion-color-darkYellow);
+              }
+            }
+          }
+          .review-content {
+            font-size: 14px;
+            font-family: 'tofini_regular';
+            margin-top: 0px;
+            line-height: 20px;
+          }
+        }
+      }
+      .errMsg{
+        text-align: center;
+        margin-top: 12%;
+      }
+    }
+  }
+}

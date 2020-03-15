@@ -1,0 +1,58 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <p class="location-label">Your location</p>
+        <p class="select-location ion-no-margin">
+            <ion-icon class="pin" src="../../../assets/images/General/ic_location_color.svg"></ion-icon>
+            {{dispLocation}} City
+            <ion-icon class="direction" src="../../../assets/images/General/ic_direction.svg"></ion-icon>
+        </p>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="openFilter()" class="btn-filter" fill="clear">
+                <ion-icon src='../../../assets/images/General/_ionicons_svg_ios-funnel.svg'></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar (ionClear)="setCurrent()" showCancelButton="never" [(ngModel)]="searchString" spellcheck="true" mode='ios' animated="true" debounce="true" (search)="search($event.target.value)"></ion-searchbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="setCurrent()" (click)="searchString = ''" fill="clear" class="btn-cancel">
+                Cancel
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div #map id="map" style="height: 100%;width: 100%"></div>
+    <div class="map-button">
+        <div class="info-icon">
+            <ion-icon src="../../../assets/images/near-by/ic_info.svg"></ion-icon>
+        </div>
+        <ion-icon (click)="currentLocation()" class="location" src="../../../assets/images/near-by/ic_location_clear.svg">
+        </ion-icon>
+    </div>
+    <ion-row class="salonList-row" nowrap>
+        <ion-col size="8" size-md="5" size-xl="4" *ngFor="let i of branchList">
+            <div class="salon-section">
+                <div (click)="viewSalon(i)" tappable class="salon-image">
+                    <img class="salon-img" src="{{i?.imagePath}}{{i?.image}}" alt="">
+                </div>
+                <div class="salon-detail">
+                    <h5 (click)="viewSalon(i)" tappable class="salon-name">{{i?.name}} <span class="start-span ion-float-right"><img src="../../../assets/images/General/ic_star.svg"
+                alt="">{{(i?.rate).toFixed(1)}}</span>
+                    </h5>
+                    <p class="salon-address">{{i?.address}}</p>
+                    <ion-button class="btn-book ion-float-right" mode="md" size="small" (click)="bookNow(i)">
+                        Book
+                    </ion-button>
+                </div>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="openNearModal()">
+        <ion-fab-button>
+            <ion-icon src="../../../assets/images/General/noun_List_204249.svg"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

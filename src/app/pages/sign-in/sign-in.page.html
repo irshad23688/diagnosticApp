@@ -1,0 +1,21 @@
+<ion-content>
+  <div class="content-section">
+    <h1 class="ion-text-center title">Welcome Back</h1>
+    <p class="ion-text-center">Login to your account</p>
+    <form>
+      <ion-input class="email-input" name="email" [(ngModel)]="user.email" placeholder="Email" type="email"></ion-input>
+
+      <ion-input placeholder="Password" name="password" [(ngModel)]="user.password" type="password"></ion-input>
+
+      <ion-button class="btn-login ion-text-capitalize" mode="md" expand="full" shape="round" fill="solid"
+        (click)="login()">
+        Login
+      </ion-button>
+    </form>
+    <ion-button class="btn-forgot" expand="full" fill="clear" (click)="forgotPassword()">
+      Forgot your password?
+    </ion-button>
+
+    <p class="ion-text-center account-text">Don’t have an account? <a (click)="signUp()"> Sign up</a></p>
+  </div>
+</ion-content>

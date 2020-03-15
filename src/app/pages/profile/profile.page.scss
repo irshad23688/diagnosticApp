@@ -1,0 +1,281 @@
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    height: 135px;
+    background: url("../../../assets/images/profile/back_image.png") no-repeat;
+    background-size: 100% 142px;
+  }
+  ion-title {
+    font-size: 19px;
+    color: var(--ion-color-white);
+    font-family: "tofini_bold";
+  }
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --ripple-color: var(--ion-color-white);
+    .back-icon {
+      width: 23.74px;
+      height: 20px;
+    }
+    .bookmark-icon {
+      width: 27px;
+      height: 27px;  
+      color: white;
+    }
+  }
+  --background: none;
+  background: url("../../../assets/images/General/Rectangle.png") no-repeat;
+  background-size: 100% 140px;
+
+  .profile-detail {
+    background: var(--ion-color-white-light);
+    // position: fixed;
+    width: 100%;
+    position: relative;
+
+    .profile-image {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 2px solid var(--ion-color-orange);
+      margin: -3.1rem auto 0px;
+      position: relative;
+      z-index: 111119;
+      img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+      .active {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        right: 0px;
+        bottom: -5px;
+        border-radius: 50%;
+      }
+    }
+    .name {
+      font-family: "tofini_bold";
+      margin-bottom: 0px;
+    }
+    .email {
+      font-size: 14px;
+      font-family: "tofini_regular";
+      margin-top: 2px;
+      color: var(--ion-color-lightGray);
+    }
+    .gender {
+      font-size: 14px;
+      font-family: "tofini_book";
+      color: var(--ion-color-simpleDark);
+      margin-bottom: 5px;
+    }
+  }
+}
+ion-content {
+  ion-segment {
+    position: sticky;
+    top: 0;
+    z-index: 22222;
+    background: white;
+    padding-bottom: 2px;
+  }
+
+  .sub-detail {
+    // margin-top: 20.5rem;
+    position: sticky;
+    top: 0;
+    padding-bottom: 5px;
+    z-index: 5555;
+    ion-segment-button {
+      font-family: "tofini_medium";
+      &:first-child {
+        margin-left: 24px;
+      }
+      &:last-child {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  ion-item {
+    --background: var(--ion-color-white);
+    border-radius: 10px;
+    margin: 10px 0px;
+
+    ion-thumbnail {
+      height: 66px;
+      width: 66px;
+      border-radius: 10px;
+      img {
+        border-radius: 10px;
+      }
+    }
+    ion-label {
+      margin-bottom: 0px;
+      white-space: normal !important;  
+    }
+    .title {
+      font-size: 15px;
+      font-family: 'tofini_medium';
+      margin-bottom: 0px;
+    }
+    .service-name {
+      font-size: 12px;
+      font-family: 'tofini_medium';
+      margin: 0px;
+      line-height: 15px;
+      color: var(--ion-color-MiddleGray);
+    }
+    .service-provide {
+      font-size: 12px;
+      font-family: 'tofini_medium';
+      margin: 0px;
+      line-height: 15px;
+      color: var(--ion-color-gray);
+    }
+    .address {
+      font-size: 12px;
+      line-height: 14px;
+      font-family: 'tofini_regular';
+      white-space: initial;
+      margin-top: 8px;
+      color: var(--ion-color-lightGray);
+    }
+    .end-div {
+      margin-left: 10px;
+      .calendor-icon {
+        padding: 3px;
+        background: rgba(253, 108, 87, 0.3);
+        border-radius: 50%;
+        height: 25px;
+        width: 25px;
+        text-align: center;
+        padding-top: 5px;
+        margin-bottom: 7px;
+        margin: 0px 0px 7px auto;
+
+        ion-icon {
+          font-size: 13px;
+          color: var(--ion-color-orange);
+        }
+      }
+      .date {
+        margin: 0px;
+        font-size: 11px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-simpleDark);
+      }
+      .time {
+        font-family: 'tofini_medium';
+        font-size: 14px;
+        margin: 3px 0px 0px 0px;
+      }
+    }
+  }
+
+  .fev{
+    border-bottom: 2px solid #dbdbdb;
+    padding: 10px;
+    ion-thumbnail {
+      width: 100px;
+      height: 83px;
+      img {
+        border-radius: 10px;
+      }
+    }
+    ion-label{
+      white-space: normal;
+    }
+    .salon-name {
+      font-size: 16px;
+      font-family: 'tofini_medium';
+      color: var(--ion-color-black);
+      .distance {
+        ion-icon {
+          margin-bottom: -1px;
+          margin-right: 3px;
+        }
+        font-size: 12px;
+        margin-top: 5px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-simpleDark);
+      }
+    }
+    .salon-address {
+      font-size: 12px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+      margin: 0px;
+      line-height: 14px;
+    }
+    .salon-start {
+      font-size: 13px;
+      font-family: 'tofini_medium';
+      margin: 0px;
+      color: var(--ion-color-lightGray);
+    }
+    .salon-time {
+      color: var(--ion-color-orange);
+      margin-top: 6px;
+      font-family: 'tofini_regular';
+      font-size: 13px;
+    }
+    .heart-dislike {
+      text-transform: initial;
+      --border-radius: 17px;
+      --padding-start: 0;
+      --padding-end: 0;
+      padding: 6px;
+      font-size: 15px;
+      font-family: 'tofini_medium';
+      position: absolute;
+      bottom: 10px;
+      right: 16px;
+      margin: 0px;
+      width: 40px;
+      height: 40px;
+      --box-shadow: none;
+    }
+
+  }
+}
+ion-segment-button {
+  text-transform: initial;
+  --background: transparent;
+  --background-activated: transparent;
+  --background-checked: transparent;
+  --background-hover: transparent;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --border-width: 0px;
+  --color-checked: var(--ion-color-black);
+  --color: var(--ion-color-lightGray);
+  --indicator-color-checked: transparent;
+  font-size: 16px;
+  font-family: "tofini_regular";
+  &:first-child {
+    margin-left: 15px;
+  }
+  &:last-child {
+    margin-right: 15px;
+  }
+
+  ion-label {
+    margin-bottom: 0px;
+    div {
+      height: 3px;
+      margin-top: 4px;
+      background: transparent;
+    }
+    .active-segment-line {
+      background: var(--ion-color-gradiant);
+    }
+  }
+}
+.check-segment {
+  font-family: "tofini_medium";
+}

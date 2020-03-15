@@ -1,0 +1,26 @@
+<!-- <ion-app>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app> -->
+<ion-app>
+    <ion-split-pane disabled='true'>
+        <ion-menu type="overlay" disabled="true">
+            <ion-header>
+                <ion-toolbar>
+                    <ion-title>Menu</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content>
+                <ion-list>
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                        <ion-item [routerDirection]="'root'" [routerLink]="[p.path]">
+                            <ion-label>
+                                {{p.name}}
+                            </ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

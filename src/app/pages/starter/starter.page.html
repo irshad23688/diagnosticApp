@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="main-container">
+    <div class="bottom-container">
+      <div class="logo-section">
+        <img src="../../../assets/images/starter/noun_barbershop_79139.svg" alt="">
+      </div>
+      <h2 class="title">Book an Appointment for <br> Salon, Spa & Barber.</h2>
+
+      <ion-button (click)="googleLogin()" class="btn-social-login google" mode="md" expand="full" shape="round"
+        fill="solid">
+        <img src="../../../assets/images/starter/google-fill.svg" alt="">
+        Connect with&nbsp;<strong>Google</strong>
+      </ion-button>
+
+      <ion-button (click)="fbLogin()" class="btn-social-login facebook" mode="md" expand="full" shape="round"
+        fill="solid">
+        <img src="../../../assets/images/starter/facebook-fill.svg" alt="">
+        Connect with&nbsp;<strong>Facebook</strong>
+      </ion-button>
+      <p class="ion-text-center">
+        Already have an account? <a class="btn-signIn" (click)="signInPage()">Sign in</a>
+      </p>
+    </div>
+  </div>
+</ion-content>

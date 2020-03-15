@@ -1,0 +1,156 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title class="ion-text-center">Appoinments</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-segment class="main-segment" (ionChange)="chageViewAppoinment($event)">
+            <ion-segment-button value="Upcomming" checked>
+                <ion-label>Upcoming
+                    <div [ngClass]="{'active-segment-line': activeTab=='Upcomming'}"></div>
+                </ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Completed">
+                <ion-label>Completed
+                    <div [ngClass]="{'active-segment-line': activeTab=='Completed'}"></div>
+                </ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Cancled">
+                <ion-label>Cancelled
+                    <div [ngClass]="{'active-segment-line': activeTab=='Cancled'}"></div>
+                </ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content refreshingSpinner="crescent" pullingIcon="happy">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div [ngSwitch]="activeTab">
+        <div *ngSwitchCase="'Upcomming'">
+
+            <ion-item lines="none" *ngFor="let i of appointments.pending_appointment">
+                <ion-thumbnail slot="start">
+                    <img src="{{i?.location?.imagePath}}{{i?.location?.image}}">
+                </ion-thumbnail>
+                <ion-label>
+                    <h2 class="title">{{i?.location?.name}}</h2>
+                    <p class="service-name">
+                        <span *ngFor="let j of i.service;let lst = first;">{{j?.name}}(${{j?.price}})<span *ngIf="lst">,
+                          </span></span>
+                    </p>
+                    <p class="service-provide">{{i?.employee?.first_name}} {{i?.employee?.last_name}}</p>
+                    <p class="address">{{i?.location?.address}}</p>
+                </ion-label>
+                <div slot="end" class="end-div ion-text-right">
+                    <div class="calendor-icon">
+                        <ion-icon src="../../../assets/images/General/noun_Calendar_2577480.svg"></ion-icon>
+                    </div>
+                    <p class="date">
+                        <!-- 20-jan-2019 -->
+                        {{i?.date}}
+                    </p>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        {{i?.time}}
+                    </h4>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        ${{i?.payment}}
+                    </h4>
+                </div>
+            </ion-item>
+        </div>
+        <div *ngSwitchCase="'Completed'">
+
+            <ion-item lines="none" *ngFor="let i of appointments.complete_appointment">
+                <ion-thumbnail slot="start">
+                    <img src="{{i?.location?.imagePath}}{{i?.location?.image}}">
+                </ion-thumbnail>
+                <ion-label>
+                    <h2 class="title">{{i?.location?.name}}</h2>
+                    <p class="service-name">
+                        <span *ngFor="let j of i.service;let lst = first;">{{j?.name}}(${{j?.price}})<span *ngIf="lst">,
+              </span></span>
+                    </p>
+                    <p class="service-provide">{{i?.employee?.first_name}} {{i?.employee?.last_name}}</p>
+                    <p class="address">{{i?.location?.address}}</p>
+                </ion-label>
+                <div slot="end" class="end-div ion-text-right">
+                    <div class="calendor-icon">
+                        <ion-icon src="../../../assets/images/General/noun_Calendar_2577480.svg"></ion-icon>
+                    </div>
+                    <p class="date">
+                        <!-- 20-jan-2019 -->
+                        {{i?.date}}
+                    </p>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        {{i?.time}}
+                    </h4>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        ${{i?.payment}}
+                    </h4>
+                    <ion-button (click)="rateNow(i)" *ngIf="i?.review_status == 0" mode="md" class="btn-book" size="small">Rate
+                    </ion-button>
+                </div>
+
+            </ion-item>
+        </div>
+        <div *ngSwitchCase="'Cancled'">
+            <ion-item lines="none" *ngFor="let i of appointments.cancle_appointment">
+                <ion-thumbnail slot="start">
+                    <img src="{{i?.location?.imagePath}}{{i?.location?.image}}">
+                </ion-thumbnail>
+                <ion-label>
+                    <h2 class="title">{{i?.location?.name}}</h2>
+                    <p class="service-name">
+                        <span *ngFor="let j of i.service;let lst = first;">{{j?.name}}(${{j?.price}})<span *ngIf="lst">,
+              </span></span>
+                    </p>
+                    <p class="service-provide">{{i?.employee?.first_name}} {{i?.employee?.last_name}}</p>
+                    <p class="address">{{i?.location?.address}}</p>
+                </ion-label>
+                <div slot="end" class="end-div ion-text-right">
+                    <div class="calendor-icon">
+                        <ion-icon src="../../../assets/images/General/noun_Calendar_2577480.svg"></ion-icon>
+                    </div>
+                    <p class="date">
+                        <!-- 20-jan-2019 -->
+                        {{i?.date}}
+                    </p>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        {{i?.time}}
+                    </h4>
+                    <h4 class="time">
+                        <!-- 12:45 PM -->
+                        ${{i?.payment}}
+                    </h4>
+                </div>
+            </ion-item>
+        </div>
+    </div>
+
+    <div *ngIf="appointments?.complete_appointment?.length == 0 && activeTab=='Completed'" class="noDatatoShow">
+        <img src="../../../assets/nodataavailable.png">
+        <h2>OOPS</h2>
+        <h2>No Data Available!!</h2>
+    </div>
+
+    <div *ngIf="appointments?.cancle_appointment?.length == 0 && activeTab=='Cancled'" class="noDatatoShow">
+        <img src="../../../assets/nodataavailable.png">
+        <h2>OOPS</h2>
+        <h2>No Data Available!!</h2>
+    </div>
+
+    <div *ngIf="appointments?.pending_appointment?.length == 0 && activeTab=='Upcomming'" class="noDatatoShow">
+        <img src="../../../assets/nodataavailable.png">
+        <h2>OOPS</h2>
+        <h2>No Data Available!!</h2>
+    </div>
+
+</ion-content>

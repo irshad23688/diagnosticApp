@@ -1,0 +1,7 @@
+{
+    "name": "bookapoint",
+    "integrations": {
+        "cordova": {}
+    },
+    "type": "angular"
+}

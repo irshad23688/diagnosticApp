@@ -1,0 +1,38 @@
+ion-header {
+  ion-toolbar {
+    --background: var(--ion-color-white-light);
+    border-bottom: 1px solid var(--ion-border-color);
+  }
+
+  ion-title {
+    font-size: 16px;
+    font-family: 'tofini_medium';
+    text-align: center;
+    color: var(--ion-color-black);
+  }
+}
+ion-content {
+  ion-avatar{
+    height: 50px; 
+    width: 50px;
+  }
+  ion-label{
+    white-space: normal;
+  }
+  .title {
+    font-size: 16px;
+    font-family: 'tofini_medium';
+    .time-ago {
+      font-size: 11px;
+      margin-top: 2px;
+      font-family: 'tofini_regular';
+      margin-top: 2px;
+      color: var(--ion-color-simpleDarky);
+    }
+  }
+  .detail {
+    font-size: 13px;
+    font-family: 'tofini_book';
+    color: var(--ion-color-lightGray);
+  }
+}

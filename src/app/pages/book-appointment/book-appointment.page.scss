@@ -1,0 +1,140 @@
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+  }
+  ion-title { 
+    font-size: 19px;
+    color: var(--ion-color-white);
+    font-family: 'tofini_bold';
+  }
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --ripple-color: var(--ion-color-white);
+    margin-left: 15px;
+    ion-icon {
+      width: 23.74px;
+      height: 20px;
+    }
+  }
+}
+ion-content {
+  --background: url('../../../assets/images/General/Rectangle.png') no-repeat
+    0px 0px / 100%;
+  .main-containt {
+    padding: 3vh 24px 0px 24px;
+    background-color: var(--ion-color-white);
+    height: 100%;
+    border-radius: 17px 17px 0px 0px;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 28vh;
+    border-radius: 17px 17px 0px 0px;
+    .scroll-div {
+      height: 70vh;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .title {
+      font-size: 16px;
+      font-family: 'tofini_bold';
+      margin-top: 0px;
+    }
+    .errMsg{
+      font-size: 16px;
+      font-family: 'tofini_bold';
+      margin-top: 0px;
+      text-align: center;
+      color: red;
+    }
+    .select-date {
+      position: relative;
+      ion-datetime {
+        height: 44px;
+        border-radius: 22px;
+        --padding-start: 24px;
+        --padding-top: 16px;
+        --padding-bottom: 13px;
+        font-family: 'tofini_regular';
+        font-size: 15px;
+        margin-bottom: 35px;
+        --placeholder-color: var(--ion-placeholder-color);
+        background: var(--ion-input-back);
+        font-size: 15px;
+      }
+      .calendar-icon {
+        position: absolute;
+        top: 10px;
+        right: 24px;
+        z-index: 100;
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    .employee-row {
+      padding-bottom: 20px;
+      overflow-x: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .image-div {
+        height: 56px;
+        width: 56px;
+        margin: 0px auto;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        img {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .active {
+        border-color: var(--ion-color-orange);
+      }
+    }
+    .emp-name {
+      font-size: 12px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightDark);
+    }
+    .booking-slot-div {
+      .slot {
+        padding: 6px 0px 4px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid var(--ion-border-color);
+        font-size: 13px;
+        padding: 9px 0px 7px;
+        font-family: 'tofini_regular';
+        border-radius: 2px;
+      }
+      .active {
+        color: var(--ion-color-white);
+        background: var(--ion-color-orange);
+        border-color: var(--ion-color-orange);
+      }
+    }
+    .no-left-padding {
+      padding-left: 0px;
+    }
+    .no-right-padding {
+      padding-right: 0px;
+    }
+    .btn-continue {
+      --color: var(--ion-color-white);
+      height: 44px;
+      margin: 35px 8px 20px 8px;
+      font-size: 15px;
+      --box-shadow: none;
+      font-family: 'tofini_regular';
+      --background: var(--ion-color-gradiant);
+      text-transform: inherit;
+    }
+  }
+}

@@ -1,0 +1,174 @@
+ion-header {
+  ion-toolbar {
+    --background: var(--ion-color-white-light);
+    border-bottom: 1px solid var(--ion-border-color);
+  }
+
+  ion-title {
+    font-size: 16px;
+    font-family: 'tofini_medium';
+    text-align: center;
+    color: var(--ion-color-black);
+  }
+  .btn-header {
+    font-size: 16px;
+    font-family: 'tofini_medium';
+    --color: var(--ion-color-orange);
+  }
+}
+ion-content {
+  --padding-end: 16px;
+  --padding-start: 16px;
+  --padding-top: 23px;
+  .title {
+    font-size: 16px;
+    margin-top: 0px;
+    font-family: 'tofini_bold';
+  }
+  .service-section {
+    padding-bottom: 25px;
+    .service {
+      padding: 9px 17px 6px 16px;
+      border: 1px solid var(--ion-border-color);
+      width: fit-content;
+      border-radius: 17px;
+      font-size: 15px;
+      font-family: 'tofini_regular';
+      margin-right: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+    .active {
+      background-color: var(--ion-color-orange);
+      color: var(--ion-color-white);
+      border-color: var(--ion-color-orange);
+    }
+  }
+  .rating-section {
+    padding-bottom: 15px;
+    ion-icon {
+      width: 32px;
+      height: 32px;
+      margin-right: 7px;
+    }
+    .yellow-star {
+      color: var(--ion-color-darkYellow);
+    }
+    .gray-star {
+      color: var(--ion-border-color);
+    }
+    .count-rating {
+      display: inline-block;
+      position: relative;
+      top: -7px;
+      left: 23px;
+      font-size: 14px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+    }
+  }
+  .gender-section {
+    padding-bottom: 25px;
+    .title {
+      margin-bottom: 0px;
+    }
+    ion-radio {
+      --border-width: 1px;
+      --color: var(--ion-color-orange);
+      --color-checked: var(--ion-color-orange);
+      margin-right: 11px;
+    }
+    ion-label {
+      font-size: 16px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightDark);
+    }
+  }
+  .distance-section {
+    padding-bottom: 25px;
+    position: relative;
+    .title {
+      margin-bottom: 0px;
+    }
+    ion-item {
+      --min-height: 39px;
+      --inner-padding-end: 0px;
+    }
+    .km-label {
+      right: 0px;
+      position: absolute;
+      top: 10px;
+      z-index: 1000;
+      font-size: 14px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+    }
+    ion-range {
+      --knob-size: 30px;
+      --bar-height: 4px;
+      --knob-background: var(--ion-color-orange);
+      --bar-background: #e4e4e4;
+      --bar-background-active: var(--ion-color-gradiant);
+      --bar-border-radius: 3px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+  .sort-section {
+    padding-bottom: 28px;
+    .title {
+      margin-bottom: 0px;
+    }
+    ion-item {
+      --inner-padding-end: 0px;
+      --min-height: 34px;
+      height: 34px;
+      font-size: 15px;
+      font-family: 'tofini_regular';
+      --color: var(--ion-color-lightDark);
+
+      ion-icon {
+        font-size: 36px;
+        color: var(--ion-color-orange);
+      }
+    }
+    .active {
+      --color: var(--ion-color-orange);
+    }
+  }
+  .price-section {
+    .title {
+      margin-bottom: 6px;
+    }
+    .price-type {
+      padding: 9px 0px 6px 0px;
+      border: 1px solid var(--ion-border-color);
+      width: 100%;
+      border-radius: 17px;
+      font-size: 15px;
+      text-align: center;
+      font-family: 'tofini_regular';
+      margin-right: 10px;
+    }
+    .active {
+      color: var(--ion-color-white);
+      background: var(--ion-color-orange);
+    }
+    .no-left-padding {
+      padding-left: 0px;
+    }
+    .no-right-padding {
+      padding-right: 0px;
+    }
+  }
+  .btn-apply {
+    --color: var(--ion-color-white);
+    height: 44px;
+    margin: 27px 8px 57px 8px;
+    font-size: 15px;
+    --box-shadow: none;
+    font-family: 'tofini_regular';
+    --background: var(--ion-color-gradiant);
+    text-transform: inherit;
+  }
+}

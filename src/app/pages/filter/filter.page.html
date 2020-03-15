@@ -1,0 +1,121 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start" mode="md">
+      <ion-button class="btn-header" mode="md" fill="clear" text-capitalize (click)="cancel()">
+        Cancel
+      </ion-button> 
+    </ion-buttons>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end" mode="md">
+      <ion-button class="btn-header" mode="md" fill="clear" text-capitalize (click)="reset()">
+        Reset
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="service-section">
+    <h4 class="title">Services</h4>
+    <div style="display: inline-block;">
+      <div class="service" [ngClass]="{'active': activeSerice.id==s.id}" *ngFor="let s of allCategory"
+        (click)="setService(s)">
+        {{s.name}}
+      </div>
+    </div>
+  </div>
+  <div class="rating-section">
+    <h4 class="title">Rating</h4>
+    <ion-icon (click)="setRating(1)" [ngClass]="ratingValue >= 1 ? 'yellow-star' :'gray-star'"
+      src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+    <ion-icon (click)="setRating(2)" [ngClass]="ratingValue >= 2 ? 'yellow-star' :'gray-star'"
+      src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+    <ion-icon (click)="setRating(3)" [ngClass]="ratingValue >= 3 ? 'yellow-star' :'gray-star'"
+      src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+    <ion-icon (click)="setRating(4)" [ngClass]="ratingValue >= 4 ? 'yellow-star' :'gray-star'"
+      src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+    <ion-icon (click)="setRating(5)" [ngClass]="ratingValue == 5 ? 'yellow-star' :'gray-star'"
+      src="../../../assets/images/General/_ionicons_svg_ios-star.svg">
+    </ion-icon>
+    <p class="count-rating">{{ratingValue}}.0 Star</p>
+  </div>
+
+  <!-- <div class="gender-section">
+    <h4 class="title">Gender</h4>
+    <ion-radio-group [(ngModel)]="gender">
+      <ion-row class="ion-no-padding">
+        <ion-col class="ion-no-padding">
+          <ion-item class="ion-no-padding" lines="none">
+            <ion-label>Man</ion-label>
+            <ion-radio slot="start" mode="md" value="Man" checked></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-item class="ion-no-padding" lines="none">
+            <ion-label>Woman</ion-label>
+            <ion-radio slot="start" mode="md" value="Woman"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-item class="ion-no-padding" lines="none">
+            <ion-label>Other</ion-label>
+            <ion-radio slot="start" mode="md" value="Other"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </div> -->
+
+  <div class="distance-section">
+    <h4 class="title">Distance</h4>
+    <span class="km-label">{{(distance.lower).toFixed(1)}} to {{(distance.upper).toFixed(1)}} km</span>
+    <ion-item lines="none" class="ion-no-padding">
+      <ion-range min="0" max="40" mode="md" [(ngModel)]="distance" dualKnobs="true" snaps="false" step="0.1">
+      </ion-range>
+    </ion-item>
+  </div>
+  <div class="sort-section">
+    <h4 class="title">Sort by</h4>
+    <ion-list mode="md" class="ion-no-padding">
+      <ion-radio-group>
+        <ion-item lines="none" [ngClass]="{'active': activeSortType=='Most Popular'}" class="ion-no-padding"
+          (click)="setSortType('Most Popular')">
+          <ion-label>Most Popular</ion-label>
+          <ion-icon *ngIf="activeSortType=='Most Popular'"
+            src="../../../assets/images/General/_ionicons_svg_ios-checkmark.svg"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="none" [ngClass]="{'active': activeSortType=='Cost Low to High'}" class="ion-no-padding active"
+          (click)="setSortType('Cost Low to High')">
+          <ion-label>Cost Low to High</ion-label>
+          <ion-icon *ngIf="activeSortType=='Cost Low to High'"
+            src="../../../assets/images/General/_ionicons_svg_ios-checkmark.svg"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="none" [ngClass]="{'active': activeSortType=='Cost High to Low'}" class="ion-no-padding"
+          (click)="setSortType('Cost High to Low')">
+          <ion-label>Cost High to Low</ion-label>
+          <ion-icon *ngIf="activeSortType=='Cost High to Low'"
+            src="../../../assets/images/General/_ionicons_svg_ios-checkmark.svg"></ion-icon>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+  <div class="price-section">
+    <h4 class="title">Price</h4>
+    <ion-row class="ion-no-padding ">
+      <ion-col class="no-left-padding">
+        <div class="price-type" [ngClass]="{'active': activePrice==1}" (click)="setPrice(1)">$</div>
+      </ion-col>
+      <ion-col>
+        <div class="price-type" [ngClass]="{'active': activePrice==2}" (click)="setPrice(2)">$$</div>
+      </ion-col>
+      <ion-col class="no-right-padding">
+        <div class="price-type" [ngClass]="{'active': activePrice==3}" (click)="setPrice(3)">$$$</div>
+      </ion-col>
+    </ion-row>
+  </div>
+  <ion-button class="btn-apply" mode="md" expand="full" shape="round" fill="solid" (click)="applyFilter()">
+    Apply Filter
+  </ion-button>
+</ion-content>

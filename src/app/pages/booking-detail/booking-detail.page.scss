@@ -1,0 +1,175 @@
+ion-header {
+  ion-toolbar {
+    --background: #f9f9f9;
+    border-bottom: 1px solid #dedede;
+  }
+  ion-button {
+    --padding-start: 0px;
+    --padding-end: 0px;
+    --ripple-color: var(--ion-color-white);
+    margin-left: 15px;
+    ion-icon {
+      width: 23.74px;
+      height: 20px;
+    }
+  }
+  ion-title {
+    font-size: 17px;
+    font-family: 'tofini_medium';
+    --color: var(--ion-color-black);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+}
+ion-content {
+  --background: #f7f8f9;
+  .serviceiDetail {
+    padding: 16px 16px 24px 16px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 4px 8px #ddd;
+    background: var(--ion-color-white);
+    .salon-img {
+      width: 100px;
+      height: 90px;
+      border-radius: 10px;
+    }
+    .title {
+      font-size: 18px;
+      font-family: 'tofini_medium';
+      margin-top: 0px;
+      margin-bottom: 5px;
+      .start-span {
+        font-size: 13px;
+        color: #999999;
+        img {
+          margin-right: 4px;
+        }
+      }
+    }
+    .address,
+    .distance {
+      font-size: 12px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+    }
+    .services {
+      font-size: 12px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+      margin-bottom: 0px;
+      margin-top: 14px;
+      span {
+        color: var(--ion-color-black);
+        font-family: 'tofini_medium';
+        font-weight: 600;
+      }
+    }
+    .amount-tolal {
+      font-size: 14px;
+      font-family: 'tofini_medium';
+      margin-top: 7px;
+
+      .amount {
+        color: var(--ion-color-orange);
+        font-family: 'tofini_bold';
+      }
+    }
+    .date-time {
+      background: var(--ion-input-back);
+      border-radius: 22px;
+      text-align: center;
+      padding: 11px 0px 13px;
+      margin-top: 18px;
+      p {
+        font-size: 14px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-lightGray);
+        margin: 0px;
+        img {
+          height: 21px;
+          width: 21px;
+          margin-bottom: -5px;
+          margin-right: 13px;
+        }
+        span {
+          color: var(--ion-color-lightDark);
+        }
+      }
+    }
+  }
+  .payment-section {
+    padding: 0px 16px 24px 16px;
+    .payment-title {
+      margin-top: 4vh;
+      font-size: 16px;
+      font-family: 'tofini_medium';
+      color: var(--ion-color-MiddleGray);
+      .btn-add-card {
+        height: 1em;
+        font-size: 14px;
+        text-transform: initial;
+        --padding-start: 0em;
+        --padding-end: 0em;
+        margin-top: 2px;
+      }
+    }
+    ion-item {
+      --min-height: 76px;
+      --padding-start: 22px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px #dbdbdb;
+      border: 2px solid white;
+      margin-bottom: 14px;
+      --ripple-color: var(--ion-color-white);
+      img {
+        margin-right: 18px;
+      }
+      .card {
+        height: 40px;
+        width: 46px;
+      }
+      .bank {
+        height: 46px;
+        width: 46px;
+      }
+      .paypal {
+        height: 40px;
+        width: 34px;
+      }
+      h4 {
+        font-size: 18px;
+        font-family: 'tofini_medium';
+        margin-top: 0px;
+      }
+      p {
+        font-size: 13px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-simpleDark);
+      }
+      ion-radio {
+        margin-inline-start: 11px;
+        --border-width: 1px;
+        --color: var(--ion-color-simpleDark);
+        --color-checked: var(--ion-color-orange);
+      }
+    }
+    .active {
+      border-color: var(--ion-color-orange);
+    }
+    .btn-continue {
+      --color: var(--ion-color-white);
+      height: 44px;
+      margin: 40px 8px 0px 8px;
+      font-size: 15px;
+      --box-shadow: none;
+      font-family: 'tofini_regular';
+      --background: var(--ion-color-gradiant);
+      text-transform: inherit;
+      --padding-top: 3px;
+    }
+  }
+}

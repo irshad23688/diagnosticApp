@@ -1,0 +1,26 @@
+
+ion-tabs {
+    ion-tab-bar {
+      --background: #f9f9f9;
+      ion-tab-button {
+        ion-icon {
+          height: 25px;
+          width: 25px;
+          color: #8e8e93;
+        }
+        ion-label {
+          font-size: 10px;
+          color: #8e8e93;
+          font-family: 'tofini_regular';
+          margin-top: 3px;
+        }
+        .calendar-icon {
+          height: 23px;
+          width: 23px;
+          margin-bottom: 3px;
+        }
+      }
+    }
+}
+
+  

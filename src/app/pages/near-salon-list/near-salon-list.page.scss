@@ -1,0 +1,92 @@
+ion-header {
+  ion-toolbar {
+    padding-left: 16px;
+  }
+
+  .line {
+    margin: 5px auto 0px auto;
+    width: 54px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #cccccc;
+  }
+  .title {
+    font-size: 18px;
+    font-family: 'tofini_bold';
+    color: var(--ion-color-black);
+    margin-bottom: 4px;
+  }
+  .count-label {
+    font-size: 12px;
+    color: var(--ion-color-simpleDark);
+    margin: 0px;
+    font-family: 'tofini_regular';
+    span {
+      color: var(--ion-color-black);
+    }
+  }
+}
+ion-content {
+  --padding-start: 16px;
+  --padding-end: 16px;
+
+  ion-item {
+    border-bottom: 2px solid #dbdbdb;
+    ion-thumbnail {
+      width: 100px;
+      height: 83px;
+      img {
+        border-radius: 10px;
+      }
+    }
+
+    .salon-name {
+      font-size: 16px;
+      font-family: 'tofini_medium';
+      color: var(--ion-color-black);
+      .distance {
+        ion-icon {
+          margin-bottom: -1px;
+          margin-right: 3px;
+        }
+        font-size: 12px;
+        margin-top: 5px;
+        font-family: 'tofini_regular';
+        color: var(--ion-color-simpleDark);
+      }
+    }
+    .salon-address {
+      font-size: 12px;
+      font-family: 'tofini_regular';
+      color: var(--ion-color-lightGray);
+      margin: 0px;
+      line-height: 14px;
+    }
+    .salon-start {
+      font-size: 13px;
+      font-family: 'tofini_medium';
+      margin: 0px;
+      color: var(--ion-color-lightGray);
+    }
+    .salon-time {
+      color: var(--ion-color-orange);
+      margin-top: 6px;
+      font-family: 'tofini_regular';
+      font-size: 12px;
+    }
+    .btn-book {
+      text-transform: initial;
+      --border-radius: 17px;
+      --padding-start: 19px;
+      --padding-end: 16px;
+      font-size: 15px;
+      font-family: 'tofini_medium';
+      position: absolute;
+      bottom: 10px;
+      right: 16px;
+      margin: 0px;
+      --box-shadow: none;
+    }
+  }
+
+}

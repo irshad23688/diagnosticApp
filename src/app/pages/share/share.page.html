@@ -1,0 +1,36 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>Share to</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-no-padding">
+    <ion-col tappable (click)="viaInstagram()" size="4" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png" alt="">
+      <p class="type-label">Instagram</p>
+    </ion-col>
+    <ion-col tappable (click)="viaFacebook()" size="4" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="../../../assets/images/share/facebook.png" alt="">
+      <p class="type-label">Facebook</p>
+    </ion-col>
+    <ion-col tappable size="4" (click)="viaWhatsapp()" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="http://www.roamingbuzz.com/wp-content/uploads/2017/10/whatsapp-1623579_1280.png" alt="">
+      <p class="type-label">Whatsapp</p>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-no-padding">
+    <ion-col tappable (click)="viaTwitter()" size="4" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="https://ptes.org/wp-content/uploads/2018/07/Twitterlogo.jpg" alt="">
+      <p class="type-label">Twitter</p>
+    </ion-col>
+    <ion-col tappable (click)="viaEmail()" size="4" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="../../../assets/images/share/email.png" alt="">
+      <p class="type-label">Email</p>
+    </ion-col>
+    <ion-col tappable (click)="viaSms()" size="4" class="ion-no-padding ion-text-center">
+      <img class="share-option-img" src="https://cdn4.iconfinder.com/data/icons/web-design-and-development-7-2/128/301-512.png" alt="">
+      <p class="type-label">SMS</p>
+    </ion-col>
+  </ion-row>
+</ion-content>

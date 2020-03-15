@@ -1,0 +1,29 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content refreshingSpinner="crescent"  pullingIcon="happy">
+          </ion-refresher-content>
+          </ion-refresher>
+    <div *ngIf="notiData?.length == 0" class="noDatatoShow">
+      <img src="../../../assets/nodataavailable.png">
+      <h2>OOPS</h2>
+      <h2>No Data Available!!</h2>
+    </div>
+
+  <ion-item *ngFor="let i of notiData">
+    <ion-avatar slot="start">
+      <img src="{{i?.location?.imagePath}}{{i?.location?.image}}" alt="">
+    </ion-avatar>
+    <ion-label>
+      <h2 class="title">By {{i?.location?.name}}
+        <span class="time-ago ion-float-right">{{i?.ago}}</span>
+      </h2>
+      <p class="detail">{{i?.message}}</p>
+    </ion-label>
+  </ion-item>
+</ion-content>

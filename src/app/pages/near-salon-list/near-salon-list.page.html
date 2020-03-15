@@ -1,0 +1,29 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <div class="line"></div>
+    <h4 class="title">Salon Nearby</h4>
+    <p class="count-label">Found <span>{{branchList?.length}} place</span> near <span>{{dispLocation}}</span></p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 *ngIf="branchList.length == 0" class="noData">
+    No salons nearby
+  </h2>
+  <ion-item lines="none" class="ion-no-padding" *ngFor="let salon of branchList">
+    <ion-thumbnail slot="start">
+      <img [src]="salon?.imagePath+salon?.image">
+    </ion-thumbnail>
+    <ion-label>
+      <h5 class="salon-name">{{salon?.name}} <span class="distance ion-float-right">
+          <ion-icon src="../../../assets/images/General/ic_location.svg">
+          </ion-icon>{{salon?.distance}}
+        </span></h5>
+      <p class="salon-address">{{salon?.address}}</p>
+      <p class="salon-start"><img src="../../../assets/images/General/ic_star.svg" alt="">{{(salon?.rate).toFixed(1)}}
+      </p>
+      <p class="salon-time">{{salon?.openTime}} - {{salon?.closeTime}}</p>
+      <ion-button mode="md" (click)="viewBranch(salon)" class="btn-book" size="small">Book</ion-button>
+    </ion-label>
+  </ion-item>
+</ion-content>

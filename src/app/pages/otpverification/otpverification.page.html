@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button fill="clear" mode="md" (click)="backPage()">
+        <ion-icon src="../../../assets/images/General/noun_Arrow_1256499.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="title ion-text-center">Phone Verification</h1>
+  <!-- <p class="description ion-text-center">Enter your OTP code here</p> -->
+  <p class="description ion-text-center">Enter {{randomCode}} code here for verify</p>
+
+  <div class="otp-input-div">
+    <ion-input [disabled]="remainingTime == 0" type="tel" name="a" [(ngModel)]="opt.a" #a [ngClass]="{'otp-fill': opt.a?.length > 0 }"
+      (keyup)="moveFocus($event,b,'')" maxlength="1"></ion-input>
+    <ion-input [disabled]="remainingTime == 0" type="tel" name="b" [(ngModel)]="opt.b" #b [ngClass]="{'otp-fill': opt.b?.length > 0 }" (keyup)="
+      moveFocus($event,c,a)" maxlength="1"></ion-input>
+    <ion-input [disabled]="remainingTime == 0" type="tel" name="c" [(ngModel)]="opt.c" #c [ngClass]="{'otp-fill': opt.c?.length > 0 }" (keyup)="
+      moveFocus($event,d,b)" maxlength="1"></ion-input>
+    <ion-input [disabled]="remainingTime == 0" type="tel" name="d" [(ngModel)]="opt.d" #d [ngClass]="{'otp-fill': opt.d?.length > 0 }" (keyup)="
+      moveFocus($event,'',c)" maxlength="1"></ion-input>
+  </div>
+  <p class="timer-text ion-text-center">{{timeDisp}}</p>
+  <!-- <p class="social-link ion-text-center"> Didn’t you received any code? </p> -->
+  <p class="social-link ion-text-center"> You need to purchase for otp version</p>
+
+  
+  <!-- For professional Only -->
+
+  <ion-button [disabled]="remainingTime != 0" class="btn-resend" (click)="resendCode()" mode='md' fill="clear" expand="full" size="small">
+    Resend a new code.
+  </ion-button>
+
+  <!-- For Testing Only -->
+
+  <!-- <ion-button class="btn-resend" (click)="resendCode()" mode='md' fill="clear" expand="full" size="small">
+      Put 1234 to verify
+  </ion-button> -->
+ 
+  <ion-button [disabled]="remainingTime == 0" class="btn-continue" mode="md" expand="full" shape="round" fill="solid" (click)="continue()">
+    Continue
+  </ion-button>
+</ion-content>

@@ -1,0 +1,70 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" mode="md" (click)="backPage()">
+                <ion-icon src="../../../assets/images/General/noun_Arrow_1256499.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Booking Details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="serviceiDetail">
+        <ion-row no-padding>
+            <ion-col size="4" size-md="2" size-xl="1" no-padding>
+                <img class="salon-img" src="{{dispData?.salon?.imagePath}}{{dispData?.salon?.image}}" alt="">
+            </ion-col>
+            <ion-col size="8" size-md="10" size-xl="11" no-padding padding-left>
+                <h4 class="title ">{{dispData?.salon?.name}} <span class="start-span ion-float-right">
+            <img src="../../../assets/images/General/ic_star.svg" alt="">
+            {{(dispData?.salon?.rate).toFixed(1)}}
+          </span>
+                </h4>
+                <p class="address ion-no-margin">{{dispData?.salon?.address}}</p>
+                <p class="distance" style="margin-top: 8px;"><img style="margin-bottom: -1px;margin-right: 3px;" src="../../../assets/images/General/ic_location.svg" alt=""> {{dispData?.salon?.distance}} km</p>
+                <p class="services"><span>Services : </span> <span *ngFor="let i of dispData.services;let lst = first;">{{i?.name}}<span *ngIf="lst">, </span></span>
+                </p>
+            </ion-col>
+        </ion-row>
+        <p class="amount-tolal">Total: <span class="amount">${{dispData?.payment}}</span></p>
+        <div class="date-time">
+            <p> <img src="../../../assets/images/General/noun_Calendar_2577480.svg" alt=""> {{dispData?.date | date:'EEEE, dd LLLL yyyy'}}
+                <span>@ {{dispData.time}}</span></p>
+        </div>
+    </div>
+    <div class="payment-section">
+        <h4 class="payment-title">Payment Method
+        </h4>
+        <ion-radio-group [(ngModel)]="paymentType">
+            <ion-item lines="none" [ngClass]="{'active': paymentType=='COA'}">
+                <img slot="start" class="card" src="../../../assets/images/General/visa-card.png">
+                <ion-label>
+                    <h4>Cash On Arrival</h4>
+                    <p>Pay with COA</p>
+                </ion-label>
+                <ion-radio slot="end" mode="md" value="COA"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" [ngClass]="{'active': paymentType=='Bank Account'}">
+                <img slot="start" class="bank" src="../../../assets/images/General/bank-image.PNG">
+                <ion-label>
+                    <h4>Bank Account</h4>
+                    <p>Pay with stripe</p>
+                </ion-label>
+                <ion-radio slot="end" mode="md" value="Bank Account"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" [ngClass]="{'active': paymentType=='PayPal'}">
+                <img slot="start" class="paypal" class=bank src="../../../assets/images/General/paypal.PNG">
+                <ion-label>
+                    <h4>PayPal</h4>
+                    <p>Pay with paypal</p>
+                </ion-label>
+                <ion-radio slot="end" mode="md" value="PayPal" checked></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+
+        <ion-button class="btn-continue" mode="md" expand="full" shape="round" fill="solid" (click)="continue()">
+            Continue with {{paymentType}}
+        </ion-button>
+    </div>
+</ion-content>

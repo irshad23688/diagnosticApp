@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-slides #slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <div class="slide slide1">
+        <img src="../../../assets/images/slider/Slide19.svg" alt="" />
+      </div>
+      <h3 class="title ion-text-center">Find and Book Services</h3>
+      <p class="description ion-text-center">
+        Find and book Barber, Beauty, Salon & Spa <br> services anywhere, anytime.
+      </p>
+    </ion-slide>
+    <ion-slide>
+      <div class="slide slide2">
+        <img src="../../../assets/images/slider/Slide19.svg" alt="" />
+      </div>
+      <h3 class="title ion-text-center">Style that fit your Lifestyle</h3>
+      <p class="description ion-text-center">
+        Choose our Makeup special offer price <br> Package that fit your Lifestyle.
+      </p>
+    </ion-slide>
+  </ion-slides>
+  <ion-button class="btn-start ion-text-capitalize" *ngIf="activeIndex==0" mode="md" expand="full" shape="round"
+    fill="solid" (click)="next()">
+    Next
+  </ion-button>
+  <ion-button class="btn-start ion-text-capitalize" *ngIf="activeIndex==1" mode="md" expand="full" shape="round"
+    fill="solid" (click)="start()">
+    Get Started
+  </ion-button>
+</ion-content>

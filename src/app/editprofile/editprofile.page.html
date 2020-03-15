@@ -1,0 +1,42 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-back-button></ion-back-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <h2>Edit Profile</h2>
+
+    <div class="img_container">
+        <img *ngIf="!changeImage" src="{{user?.imagePath}}{{user?.image}}">
+        <img *ngIf="changeImage" src="{{img}}">
+
+        <div (click)="presentActionSheet()" class="icon_container">
+            <ion-icon name="create"></ion-icon>
+        </div>
+    </div>
+
+    <form>
+
+        <ion-input placeholder="User Name" [(ngModel)]="user.name" name="name" type="text"></ion-input>
+        <p class="err" *ngIf="err.name">{{err.name}}</p>
+
+        <ion-input placeholder="Email address" [(ngModel)]="user.email" disabled="true" name="email" type="text">
+        </ion-input>
+        <p class="err" *ngIf="err.name">{{err.email}}</p>
+
+        <ion-input placeholder="Mobile Number" name="phone" [(ngModel)]="user.phone" disabled="true" type="text">
+        </ion-input>
+        <p class="err" *ngIf="err.name">{{err.phone}}</p>
+
+        <ion-datetime class="date_picker" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" placeholder="Date of Birth" displayFormat="YYYY-MM-DD"></ion-datetime>
+        <p class="err" *ngIf="err.name">{{err.dateOfBirth}}</p>
+
+        <ion-button class="btn-SignUp" mode="md" expand="full" shape="round" fill="solid" (click)="change()">
+            Edit
+        </ion-button>
+
+    </form>
+
+</ion-content>

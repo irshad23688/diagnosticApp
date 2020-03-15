@@ -1,0 +1,237 @@
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)" [style.backgroundImage]="'url(' + aboutData?.imagePath+aboutData?.image + ')'">
+    <ion-header no-border>
+        <ion-toolbar [style.backgroundColor]="state == 1 ? '' : '#0000007a'">
+            <ion-buttons slot="start" class="ion-margin-start">
+                <ion-button (click)="backPage()" class="ion-margin-left" fill="clear" mode="md">
+                    <ion-icon class="back-icon" src="../../../assets/images/General/noun_Arrow_white_1256499.svg"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-buttons slot="end" class="ion-margin-end">
+                <ion-button fill="clear" mode="md" (click)="bookmark()">
+                    <!-- <ion-icon class="bookmark-icon" src="../../../assets/images/General/noun_bookmark_660526.svg"></ion-icon> -->
+                    <ion-icon [class]="aboutData?.favourite == 'no' ? 'bookmark_icon_unchecked' : 'bookmark_icon_checked'" name="heart"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <div class="salon-detail">
+        <h2 class="salon-name">{{aboutData?.name}}</h2>
+        <p class="salon-address">{{aboutData?.address}}</p>
+        <div class="rating-div">
+            <ion-icon [class]="aboutData?.rate >= 1 ? 'orange-start' : 'white-star'" src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [class]="aboutData?.rate >= 2 ? 'orange-start' : 'white-star'" src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [class]="aboutData?.rate >= 3 ? 'orange-start' : 'white-star'" src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [class]="aboutData?.rate >= 4 ? 'orange-start' : 'white-star'" src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [class]="aboutData?.rate >= 5 ? 'orange-start' : 'white-star'" src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <span class="total-review-lbl">({{reviews?.length}} Reviews)</span>
+            <p *ngIf="salonStatus" class="open-label ion-text-uppercase">Open</p>
+            <p *ngIf="!salonStatus" class="close-label ion-text-uppercase">Close</p>
+        </div>
+    </div>
+
+    <div class="section-two">
+        <ion-row class="btn-row ion-text-center">
+            <ion-col (click)="openWeb()" size="3">
+                <ion-icon class="icon-website" src='../../../assets/images/General/ic_website.svg'></ion-icon><br>
+                <p>Website</p>
+            </ion-col>
+            <ion-col size="3">
+                <ion-icon class="icon-call" src='../../../assets/images/General/ic_end_call.svg'></ion-icon>
+                <p><a href="tel: {{aboutData?.phone}}">Call</a></p>
+            </ion-col>
+            <ion-col size="3" (click)="openMap()" tappable>
+                <ion-icon class="icon-direction" src='../../../assets/images/General/noun_Map_2443283.svg'></ion-icon><br>
+                <p>Direction</p>
+            </ion-col>
+            <ion-col size="3">
+                <ion-icon (click)="share()" class="icon-share" src='../../../assets/images/General/ic_share.svg'></ion-icon>
+                <p (click)="share()">Share</p>
+            </ion-col>
+        </ion-row>
+        <h4 class="specialist-title ion-margin-start">Salon specialists</h4>
+        <ion-row nowrap class="ion-no-padding employee-row">
+            <ion-col size="3" size-md="1.5" size-xl="1" *ngFor="let emp of stylistData">
+                <div class="image-div" [ngClass]="{'active': emp.index==selectedEmployee}">
+                    <img [src]="emp?.imagePath+emp?.image" alt="">
+                </div>
+                <p class="emp-name ion-text-center">{{emp?.first_name}} {{emp?.last_name}}</p>
+                <p class="emp-deg ion-text-center">Manager</p>
+            </ion-col>
+        </ion-row>
+        <ion-segment [(ngModel)]="avtiveSegment">
+            <ion-segment-button mode="md" value="About" checked="true">
+                <ion-label>About</ion-label>
+            </ion-segment-button>
+            <ion-segment-button mode="md" value="Services">
+                <ion-label>Services</ion-label>
+            </ion-segment-button>
+            <ion-segment-button mode="md" value="Gallery">
+                <ion-label>Gallery</ion-label>
+            </ion-segment-button>
+            <ion-segment-button mode="md" value="Review">
+                <ion-label>Review</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div class="segment-tabs">
+        <div class="about-div" *ngIf="avtiveSegment== 'About'">
+            <h4 class="title">About</h4>
+            <p class='about-content'>
+                <span *ngIf="aboutData?.description?.length < 120">{{aboutData?.description}}</span>
+                <span *ngIf="aboutData?.description?.length >= 120 && show == false"> {{aboutData?.description | slice:0:120}}</span>
+                <span *ngIf="aboutData?.description?.length >= 120 && show == true"> {{aboutData?.description}}</span>
+                <span *ngIf="aboutData?.description?.length >= 120 && show == false">...</span>
+                <a *ngIf="aboutData?.description?.length >= 120 && show == false" (click)="showTime(true)">Read more</a>
+                <a *ngIf="aboutData?.description?.length >= 120 && show == true" (click)="showTime(false)">Read less</a>
+            </p>
+
+            <h4 class="title">Opening Hours</h4>
+
+            <ion-row class="ion-no-padding">
+                <ion-col class="dayname" style="display: inline-flex" size="6">
+                    <div class='circle'></div> Open at
+                </ion-col>
+                <ion-col class="time" size="6">
+                    {{aboutData?.openTime}}
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="ion-no-padding">
+                <ion-col class="dayname" style="display: inline-flex" size="6">
+                    <div class='circle'></div> Close at
+                </ion-col>
+                <ion-col class="time" size="6">
+                    {{aboutData?.closeTime}}
+                </ion-col>
+            </ion-row>
+
+            <!-- <ion-row class="ion-no-padding">
+        <ion-col class="dayname" style="display: inline-flex" size="6">
+          <div class='circle'></div> Monday - Friday
+        </ion-col>
+        <ion-col class="time" size="6">
+          8:30 AM - 9:00PM
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-no-padding">
+        <ion-col class="dayname" style="display: inline-flex" size="6">
+          <div class='circle'></div> Saturday - Sunday
+        </ion-col>
+        <ion-col class="time" size="6">
+          8:30 AM - 9:00PM
+        </ion-col>
+      </ion-row> -->
+
+            <ion-row class="ion-margin-top">
+                <ion-col size="8" style="padding-left: 0px">
+                    <h4 class="title ion-no-margin">Address</h4>
+                    <p class="address">{{aboutData?.address}}</p>
+                    <ion-button (click)="getDirection()" class="ion-no-margin btn-direction" mode="md" fill="clear" size="small">
+                        <ion-icon src="../../../assets/images/General/ic_direction.svg"></ion-icon>
+                        Get directions ~ {{aboutData.distance}} km
+                    </ion-button>
+                </ion-col>
+                <ion-col size="4">
+                    <div #map id="map" style="height: 100%;width: 100%"></div>
+                </ion-col>
+            </ion-row>
+            <h4 class="title">Photos
+                <ion-button (click)="avtiveSegment = 'Gallery'" class="ion-no-margin ion-float-right btn-viewAll" mode="md" size="small" fill="clear">
+                    View all
+                </ion-button>
+            </h4>
+            <ion-row class="photo-row ion-nowrap">
+                <ion-col size="3" size-md="1.5" size-xl="1" *ngFor="let i of gallary;let p = index">
+                    <img tappable (click)="openPreview(gallary,p)" height="72" width="72" src="{{i?.imagePath}}{{i?.image}}" alt="">
+                </ion-col>
+            </ion-row>
+            <ion-button (click)="viewCet()" class="btn-book" mode="md" expand="full" shape="round" fill="solid">
+                Book
+            </ion-button>
+        </div>
+
+        <div class="services-div" *ngIf="avtiveSegment== 'Services'">
+            <ion-item lines="none" *ngFor="let item of services">
+                <ion-thumbnail slot="start" [ngStyle]="{'background-color': item.color}">
+                    <img src="{{item.imagePath}}{{item.image}}">
+                </ion-thumbnail>
+                <ion-label>
+                    <h3>{{item.name}}
+                        <ion-button (click)="viewCet()" class="ion-float-right btn-view" fill="clear" size="small" mode="md">
+                            View
+                        </ion-button>
+                    </h3>
+                    <p>{{item.totalService}} types</p>
+                </ion-label>
+            </ion-item>
+        </div>
+
+        <div class="gallery-div" *ngIf="avtiveSegment== 'Gallery'">
+            <ion-row>
+                <ion-col size="6" size-md="4" size-xl="4" *ngFor="let i of gallary;let p = index">
+                    <img tappable (click)="openPreview(gallary,p)" src="{{i?.imagePath}}{{i?.image}}" alt="">
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <div class="review-div" *ngIf="avtiveSegment== 'Review'">
+            <div *ngIf="rateData?.rateStatus" class="write-review">
+                <h5>Write your Review
+                    <span class="rating ion-float-right">
+            <ion-icon [ngClass]="{'selected': activeStar>=1}" (click)="setRating(1)"
+              src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [ngClass]="{'selected': activeStar>=2}" (click)="setRating(2)"
+              src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [ngClass]="{'selected': activeStar>=3}" (click)="setRating(3)"
+              src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [ngClass]="{'selected': activeStar>=4}" (click)="setRating(4)"
+              src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+            <ion-icon [ngClass]="{'selected': activeStar>=5}" (click)="setRating(5)"
+              src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+          </span>
+                </h5>
+                <ion-item class="input-item" lines="none">
+                    <ion-avatar slot="start">
+                        <img [src]="user.provider == 'LOCAL' ? user?.imagePath+user?.image : user?.image" alt="" />
+                    </ion-avatar>
+                    <ion-input [(ngModel)]="comment" mode="md" placeholder="Leave your experience…"></ion-input>
+                </ion-item>
+                <ion-button (click)="post()" class="btn-post" shape="round" size="small" mode="md">Post</ion-button>
+            </div>
+            <h2 class="errMsg" *ngIf="reviews?.length == 0">
+                No reviews yet
+            </h2>
+            <div *ngIf="reviews?.length != 0" class="display-review">
+                <h5 class="all-review-title">All Reviews ({{reviews?.length}})</h5>
+                <div class="single-review" *ngFor="let rev of reviews">
+                    <ion-item lines="none">
+                        <ion-avatar slot="start">
+                            <img src="{{rev?.customer_image}}" />
+                        </ion-avatar>
+                        <ion-label>
+                            <h5 class="username">{{rev?.customer_name}}
+                                <span class="time ion-float-right">{{rev?.ago}}</span>
+                            </h5>
+                            <span class="stars">
+                <ion-icon [ngClass]="{'color-star': rev?.rate>=1}"
+                  src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+                <ion-icon [ngClass]="{'color-star': rev?.rate>=2}"
+                  src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+                <ion-icon [ngClass]="{'color-star': rev?.rate>=3}"
+                  src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+                <ion-icon [ngClass]="{'color-star': rev?.rate>=4}"
+                  src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+                <ion-icon [ngClass]="{'color-star': rev?.rate>=5}"
+                  src="../../../assets/images/General/_ionicons_svg_ios-star.svg"></ion-icon>
+              </span>
+                        </ion-label>
+                    </ion-item>
+                    <p class="review-content">{{rev?.message}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

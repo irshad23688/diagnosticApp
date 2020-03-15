@@ -1,0 +1,55 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button fill="clear" mode="md" (click)="backPage()">
+                <ion-icon src="../../../assets/images/General/noun_Arrow_white_1256499.svg"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Book Appointment</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+    <div class="main-containt">
+        <div class="scroll-div">
+            <h4 class="title">Select your date</h4>
+            <div class="select-date">
+                <ion-datetime (ionChange)="onChange()" max="{{maxDate}}" min="{{minDate}}" displayFormat="DD MMMM, YYYY" [(ngModel)]="bookDate"></ion-datetime>
+                <ion-icon class="calendar-icon" src="../../../assets/images/General/noun_Calendar_2577480.svg"></ion-icon>
+            </div>
+
+            <h4 class="title">Select specialist</h4>
+            <h2 class="errMsg" *ngIf="stylistData.length == 0">
+                There is no employee for this service
+            </h2>
+            <ion-row nowrap class="ion-no-padding employee-row">
+                <ion-col size="3" size-md="1.5" size-xl="1" *ngFor="let emp of stylistData" (click)="setEmployee(emp)">
+                    <div class="image-div" [ngClass]="{'active': emp?.id==selectedEmployee}">
+                        <img [src]="emp?.imagePath+emp?.image" alt="">
+                    </div>
+                    <p class="emp-name ion-text-center">{{emp?.first_name}} {{emp?.last_name}}</p>
+                </ion-col>
+            </ion-row>
+
+            <h4 class="title">Available slot</h4>
+            <h2 class="errMsg" *ngIf="timeSlot.length == 0">
+                Select diffrent employee and date
+            </h2>
+            <div class="booking-slot-div" *ngIf="timeSlot.length != 0">
+                <ion-row>
+                    <ion-col [ngClass]="{'no-right-padding': (i+1) % 4 == 0,'no-left-padding':(i==0 || i % 4 ==0)}" size="3" *ngFor="let time of timeSlot;let i=index" (click)="setTimeSlot(time.start_time)">
+                        <div class="slot" [ngClass]="{'active': activeTimeSlot==time.start_time}">
+                            {{time.start_time}}
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+            <ion-button class="btn-continue" mode="md" expand="full" shape="round" fill="solid" (click)="continue()">
+                Continue
+            </ion-button>
+        </div>
+    </div>
+
+</ion-content>
